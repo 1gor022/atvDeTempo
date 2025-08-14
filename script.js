@@ -15,11 +15,9 @@ const pressure = document.getElementById("pressure");
 const visibility = document.getElementById("visibility");
 const uvIndex = document.getElementById("uv-index");
 
-// Passo 2: Configuração da API
 const apiKey = "97d9388073b842838b3224715251308";
 const baseUrl = "https://api.weatherapi.com/v1/current.json";
 
-// Passo 3: Função para buscar dados
 async function getWeather(city) {
     try {
         const url = `${baseUrl}?key=${apiKey}&q=${city}&aqi=no&lang=pt`;
@@ -36,9 +34,8 @@ async function getWeather(city) {
     }
 }
 
-// Passo 4: Função para mostrar o clima na tela
 function mostrarClima(data) {
-    // Mostrar o container de resultado e esconder o erro
+    
     weatherResult.classList.remove("hidden");
     errorMessage.classList.add("hidden");
 
@@ -57,14 +54,12 @@ function mostrarClima(data) {
     uvIndex.innerText = data.current.uv;
 }
 
-// Passo 5: Função para mostrar erro
 function mostrarErro(msg) {
     weatherResult.classList.add("hidden");
     errorMessage.classList.remove("hidden");
     errorMessage.querySelector("p").innerText = msg;
 }
 
-// Passo 6: Evento de clique no botão
 searchBtn.addEventListener("click", () => {
     const city = cityInput.value.trim();
     if (city !== "") {
@@ -72,7 +67,6 @@ searchBtn.addEventListener("click", () => {
     }
 });
 
-// Passo 7: Buscar automaticamente "Arapiraca" ao carregar a página
 window.addEventListener("load", () => {
     getWeather("Arapiraca");
 });
