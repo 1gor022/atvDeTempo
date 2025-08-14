@@ -39,7 +39,7 @@ function mostrarClima(data) {
     weatherResult.classList.remove("hidden");
     errorMessage.classList.add("hidden");
 
-    cityName.innerText = `${data.location.name} - ${data.location.country}`;
+    cityName.innerText = `${data.location.name}, ${data.location.region} - ${data.location.country}`;
     localTime.innerText = `Horário Local: ${data.location.localtime}`;
     weatherIcon.src = data.current.condition.icon;
     weatherIcon.alt = data.current.condition.text;
